@@ -50,7 +50,7 @@ for (let dir of dirs) {
 
 	if (dir === 'build') {
 		setupBuildYarnrc();
-		yarnInstall('build');
+		// yarnInstall('build');
 		continue;
 	}
 
@@ -71,7 +71,7 @@ for (let dir of dirs) {
 		opts = { ignoreEngines: true };
 	}
 
-	yarnInstall(dir, opts);
+	// yarnInstall(dir, opts);
 }
 
 cp.execSync('git config pull.rebase merges');
