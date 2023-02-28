@@ -387,6 +387,7 @@ export function streamToPromise(stream: NodeJS.ReadWriteStream): Promise<void> {
 
 export function getElectronVersion(): string {
 	const yarnrc = fs.readFileSync(path.join(root, '.yarnrc'), 'utf8');
+	console.log(yarnrc);
 	const target = /^target "(.*)"$/m.exec(yarnrc)![1];
 	return target;
 }
