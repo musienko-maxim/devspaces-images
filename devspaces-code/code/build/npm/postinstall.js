@@ -25,7 +25,6 @@ function yarnInstall(location, opts) {
 		args.push('--ignore-engines');
 		delete opts.ignoreEngines;
 	}
-	args.push('--verbose');
 
 	console.log(`Installing dependencies in ${location}...`);
 	console.log(`$ yarn ${args.join(' ')}`);
@@ -50,7 +49,7 @@ for (let dir of dirs) {
 
 	if (dir === 'build') {
 		setupBuildYarnrc();
-		// yarnInstall('build');
+		yarnInstall('build');
 		continue;
 	}
 
@@ -71,7 +70,7 @@ for (let dir of dirs) {
 		opts = { ignoreEngines: true };
 	}
 
-	// yarnInstall(dir, opts);
+	yarnInstall(dir, opts);
 }
 
 cp.execSync('git config pull.rebase merges');
