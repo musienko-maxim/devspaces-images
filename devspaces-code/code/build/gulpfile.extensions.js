@@ -46,7 +46,7 @@ const compilations = [
 	'css-language-features/server/tsconfig.json',
 	'debug-auto-launch/tsconfig.json',
 	'debug-server-ready/tsconfig.json',
-	// 'emmet/tsconfig.json',
+	'emmet/tsconfig.json',
 	'extension-editing/tsconfig.json',
 	'git/tsconfig.json',
 	'git-base/tsconfig.json',
