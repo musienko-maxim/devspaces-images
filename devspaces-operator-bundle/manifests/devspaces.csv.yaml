@@ -909,7 +909,7 @@ spec:
                           longer supported</a>.
                       - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTCOMPONENTS
                         value: '[{"name": "universal-developer-image", "container":
-                          {"image": "registry.redhat.io/devspaces/udi-rhel8@sha256:d54d403c8ca8c1c8d14ec18072c174c0b1a2ebe1710299b68a5f3ce02e309f48"}}]'
+                          {"image": "quay.io/devspaces/udi-rhel8@sha256:latest
                       - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DEFAULTEDITOR
                         value: che-incubator/che-code/latest
                       - name: CHE_DEFAULT_SPEC_DEVENVIRONMENTS_DISABLECONTAINERBUILDCAPABILITIES
