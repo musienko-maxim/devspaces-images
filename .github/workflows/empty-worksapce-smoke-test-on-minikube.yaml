@@ -11,14 +11,57 @@
 #
 
 name: Empty workspace smoke test
-on: pull_request
+on:  [workflow_dispatch]
+
+env:
+   USERSTORY: CloneGitRepoAPI
+   TS_API_TEST_KUBERNETES_COMMAND_LINE_TOOL: kubectl
+
 jobs:
-  operator-on-minikube:
+  smoke-api-tests-on-minikube:
     runs-on: ubuntu-22.04
     steps:
+    - name: Checkout WTO
+      uses: actions/checkout@master
+      with:
+        repository: devfile/devworkspace-operator
+        path: devworkspace-operator
+
+    - name: Checkout tests codebase
+      uses: actions/checkout@master
+      with:
+        repository: eclipse/che
+        path: che
+    - name: Install NodeJs
+      uses: actions/setup-node@v3
+
     - name: Start minikube cluster
       id: run-minikube
       uses: che-incubator/setup-minikube-action@next
       with:
         minikube-version: v1.23.2
+
+    - name: Setup cert manager
+      run: |
+        cd devworkspace-operator
+        make install_cert_manager
+
+    - name: Setup DWO
+      run: |
+        make install
+
+    - name: Pre-pull image on minikube
+      run: |
+        minikube ssh
+        docker pull quay.io/devfile/universal-developer-image:latest
+        exit
+
+    - name: Run Empty workspace smoke test
+      run: |
+        cd che/tests/e2e
+        npm i
+        npm run driver-less-test
+
+
+
 
