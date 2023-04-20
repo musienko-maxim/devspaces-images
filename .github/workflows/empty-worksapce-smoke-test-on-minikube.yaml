@@ -45,7 +45,7 @@ jobs:
       run: |
         cd devworkspace-operator
         make install_cert_manager
-        sleep: 360
+        sleep 360
 
     - name: Setup DWO
       run: |
