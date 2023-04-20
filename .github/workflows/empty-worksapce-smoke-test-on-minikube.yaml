@@ -48,6 +48,7 @@ jobs:
 
     - name: Setup DWO
       run: |
+        cd devworkspace-operator
         make install
 
     - name: Pre-pull image on minikube
