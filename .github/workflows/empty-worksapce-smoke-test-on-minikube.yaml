@@ -54,9 +54,7 @@ jobs:
 
     - name: Pre-pull image on minikube
       run: |
-        minikube ssh
-        docker pull quay.io/devfile/universal-developer-image:latest
-        exit
+        minikube ssh 'docker pull quay.io/devfile/universal-developer-image:latest'
 
     - name: Run Empty workspace smoke test
       run: |
